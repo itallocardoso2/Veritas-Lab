@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>VeritasLab - Perfil do Usuário</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="/css/notifications.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: { primary: "#1380ec", "background-light": "#f6f7f8", "background-dark": "#121212", "card-dark": "#1E1E1E", "text-main-dark": "#FFFFFF", "text-secondary-dark": "#B0B0B0", "border-dark": "#2a2a2a", },
+                    fontFamily: { display: ["Inter", "sans-serif"], },
+                    borderRadius: { DEFAULT: "0.5rem", lg: "0.75rem", xl: "1rem", full: "9999px", },
+                },
+            },
+        };
+    </script>
+    <style type="text/tailwindcss">
+        body { background-color: #121212; color: #FFFFFF; font-family: 'Inter', sans-serif; } 
+        .form-input { 
+            background-color: #1E1E1E; 
+            border: 1px solid #2e3740; 
+            border-radius: 0.5rem; 
+            padding: 0.75rem; 
+            color: #E6EEF3; 
+        }
+
+        .form-input::placeholder { color: #9fb0bd; opacity: 1; }
+
+        .form-input[readonly], .form-input[disabled] { background-color: #161616; color: #cfdce3; border-color: #222831; }
+    </style>
+</head>
+
+<body class="bg-background-dark font-display">
+    <div class="relative flex h-auto min-h-screen w-full flex-col dark group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <div class="flex flex-1 justify-center py-5">
+                <div class="layout-content-container flex flex-col w-full max-w-6xl px-4 md:px-10">
+                    <header
+                        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-dark px-4 py-3 md:px-0">
+                        <div class="flex items-center gap-4 text-text-main-dark">
+                            <div class="size-8 text-primary">
+                                <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_6_543)">
+                                        <path
+                                            d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z"
+                                            fill="currentColor"></path>
+                                        <path clip-rule="evenodd"
+                                            d="M7.24189 26.4066C7.31369 26.4411 7.64204 26.5637 8.52504 26.3738C9.59462 26.1438 11.0343 25.5311 12.7183 24.4963C14.7583 23.2426 17.0256 21.4503 19.238 19.238C21.4503 17.0256 23.2426 14.7583 24.4963 12.7183C25.5311 11.0343 26.1438 9.59463 26.3738 8.52504C26.5637 7.64204 26.4411 7.31369 26.4066 7.24189C26.345 7.21246 26.143 7.14535 25.6664 7.1918C24.9745 7.25925 23.9954 7.5498 22.7699 8.14278C20.3369 9.32007 17.3369 11.4915 14.4142 14.4142C11.4915 17.3369 9.32007 20.3369 8.14278 22.7699C7.5498 23.9954 7.25925 24.9745 7.1918 25.6664C7.14534 26.143 7.21246 26.345 7.24189 26.4066ZM29.9001 10.7285C29.4519 12.0322 28.7617 13.4172 27.9042 14.8126C26.465 17.1544 24.4686 19.6641 22.0664 22.0664C19.6641 24.4686 17.1544 26.465 14.8126 27.9042C13.4172 28.7617 12.0322 29.4519 10.7285 29.9001L21.5754 40.747C21.6001 40.7606 21.8995 40.931 22.8729 40.7217C23.9424 40.4916 25.3821 39.879 27.0661 38.8441C29.1062 37.5904 31.3734 35.7982 33.5858 33.5858C35.7982 31.3734 37.5904 29.1062 38.8441 27.0661C39.879 25.3821 40.4916 23.9425 40.7216 22.8729C40.931 21.8995 40.7606 21.6001 40.747 21.5754L29.9001 10.7285ZM29.2403 4.41187L43.5881 18.7597C44.9757 20.1473 44.9743 22.1235 44.6322 23.7139C44.2714 25.3919 43.4158 27.2666 42.252 29.1604C40.8128 31.5022 38.8165 34.012 36.4142 36.4142C34.012 38.8165 31.5022 40.8128 29.1604 42.252C27.2666 43.4158 25.3919 44.2714 23.7139 44.6322C22.1235 44.9743 20.1473 44.9757 18.7597 43.5881L4.41187 29.2403C3.29027 28.1187 3.08209 26.5973 3.21067 25.2783C3.34099 23.9415 3.8369 22.4852 4.54214 21.0277C5.96129 18.0948 8.43335 14.7382 11.5858 11.5858C14.7382 8.43335 18.0948 5.9613 21.0277 4.54214C22.4852 3.8369 23.9415 3.34099 25.2783 3.21067C26.5973 3.08209 28.1187 3.29028 29.2403 4.41187Z"
+                                            fill="currentColor" fill-rule="evenodd"></path>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_6_543">
+                                            <rect fill="white" height="48" width="48"></rect>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <h2 class="text-text-main-dark text-xl font-bold leading-tight tracking-[-0.015em]">
+                                VeritasLab</h2>
+                        </div>
+                        <div class="flex flex-1 justify-end items-center gap-6">
+                            <div class="hidden md:flex items-center gap-8">
+                                <a class="text-text-secondary-dark text-base font-medium leading-normal hover:text-white"
+                                    href="/feed.html">Feed</a>
+                                <a class="text-text-secondary-dark text-base font-medium leading-normal hover:text-white"
+                                    href="/submissao.html">Submeter</a>
+                                <a id="admin-link"
+                                    class="text-text-secondary-dark text-base font-medium leading-normal hover:text-white hidden"
+                                    href="/admin.html">Admin</a>
+                            </div>
+                            <button id="notificationBtn"
+                                class="notification-button relative flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#283039] text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                                <span class="material-symbols-outlined text-white">notifications</span>
+                                <span id="unreadBadge" style="display: none;">0</span>
+                            </button>
+                            <button id="logout-button"
+                                class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#283039] text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                                <span class="material-symbols-outlined text-white">logout</span>
+                                <span class="hidden md:inline">Sair</span>
+                            </button>
+                            <div id="header-avatar"
+                                class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                                style='background-image: url("https://i.pravatar.cc/40");'></div>
+                        </div>
+                    </header>
+                    <main class="flex-1 mt-8">
+                        <div class="flex items-start gap-8 px-4">
+                            <div class="relative group">
+                                <div id="profile-avatar"
+                                    class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-32"
+                                    style='background-image: url("https://i.pravatar.cc/128");'></div>
+                                <label for="avatar-input"
+                                    class="absolute inset-0 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <span class="material-symbols-outlined text-white text-3xl">photo_camera</span>
+                                </label>
+                                <input type="file" id="avatar-input" class="hidden"
+                                    accept="image/png, image/jpeg, image/gif" />
+                            </div>
+                            <div class="flex flex-col gap-4 w-full">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h1 id="user-fullname" class="text-3xl font-bold text-text-main-dark">
+                                            Carregando...</h1>
+                                        <p id="user-username" class="text-lg text-text-secondary-dark mt-1">
+                                            @carregando...</p>
+                                        <p id="user-email" class="text-base text-text-secondary-dark mt-1">carregando...
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <button id="edit-profile-button"
+                                            class="flex items-center justify-center rounded-lg h-10 px-4 bg-[#283039] text-white text-base font-semibold leading-normal hover:bg-[#3b4754]">
+                                            <span class="truncate">Editar Perfil</span>
+                                        </button>
+                                        <a href="/submissao.html"
+                                            class="flex items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-base font-semibold leading-normal hover:bg-primary/90">
+                                            <span class="truncate">Submeter artigo</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Nova seção: bio e estatísticas do usuário -->
+                        <div class="flex gap-4 px-4 py-6 mt-4 items-start">
+                            <div class="flex-1">
+                                <p id="user-bio" class="text-base text-text-secondary-dark max-w-2xl">Carregando
+                                    descrição do perfil...</p>
+                            </div>
+                            <div class="flex gap-4">
+                                <div
+                                    class="flex flex-col gap-2 rounded-lg border border-border-dark bg-card-dark p-4 items-start w-36">
+                                    <p id="stat-publications"
+                                        class="text-text-main-dark text-3xl font-bold leading-tight">—</p>
+                                    <p class="text-text-secondary-dark text-sm">Publicações</p>
+                                </div>
+                                <div
+                                    class="flex flex-col gap-2 rounded-lg border border-border-dark bg-card-dark p-4 items-start w-36">
+                                    <p id="stat-citations" class="text-text-main-dark text-3xl font-bold leading-tight">
+                                        —</p>
+                                    <p class="text-text-secondary-dark text-sm">Citações</p>
+                                </div>
+                                <div
+                                    class="flex flex-col gap-2 rounded-lg border border-border-dark bg-card-dark p-4 items-start w-36">
+                                    <p id="stat-rating" class="text-text-main-dark text-3xl font-bold leading-tight">—
+                                    </p>
+                                    <p class="text-text-secondary-dark text-sm">Avaliação</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pb-3 mt-8">
+                            <div class="flex border-b border-border-dark px-4 gap-8">
+                                <a id="tab-articles"
+                                    class="flex flex-col items-center justify-center border-b-[3px] border-b-primary text-text-main-dark pb-[13px] pt-4"
+                                    href="#">
+                                    <p class="text-base font-semibold leading-normal">Meus Artigos</p>
+                                </a>
+                                <a id="tab-favorites"
+                                    class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-text-secondary-dark pb-[13px] pt-4 hover:border-b-primary/50 hover:text-white"
+                                    href="#">
+                                    <p class="text-base font-semibold leading-normal">Favoritos</p>
+                                </a>
+                                <a id="tab-settings"
+                                    class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-text-secondary-dark pb-[13px] pt-4 hover:border-b-primary/50 hover:text-white"
+                                    href="#">
+                                    <p class="text-base font-semibold leading-normal">Configurações</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="px-4 py-3 @container">
+                            <div class="overflow-hidden rounded-xl border border-border-dark bg-card-dark">
+                                <table class="w-full">
+                                    <thead>
+                                        <tr class="bg-[#283039]">
+                                            <th
+                                                class="px-6 py-4 text-left text-text-main-dark w-[50%] text-base font-medium leading-normal">
+                                                Título</th>
+                                            <th
+                                                class="px-6 py-4 text-left text-text-main-dark w-[20%] text-base font-medium leading-normal">
+                                                Autor</th>
+                                            <th
+                                                class="px-6 py-4 text-left text-text-main-dark w-[20%] text-base font-medium leading-normal">
+                                                Status</th>
+                                            <th
+                                                class="px-6 py-4 text-left text-text-main-dark w-[20%] text-base font-medium leading-normal">
+                                                Data</th>
+                                            <th
+                                                class="px-6 py-4 text-left text-text-main-dark w-[10%] text-base font-medium leading-normal">
+                                                Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="submissions-tbody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/auth-check.js"></script>
+    <script src="/js/notifications.js"></script>
+    <script src="/js/perfil.js"></script>
+
+    <div id="edit-profile-modal"
+        class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50">
+        <div class="bg-card-dark rounded-xl p-8 w-full max-w-md space-y-6">
+            <div class="flex justify-between items-center">
+                <h2 class="text-2xl font-bold">Editar Perfil</h2>
+                <button id="close-modal-button" class="text-2xl text-gray-400 hover:text-white">&times;</button>
+            </div>
+            <form id="edit-profile-form">
+                <label class="flex flex-col">
+                    <p class="text-base font-medium pb-2">Nome Completo</p>
+                    <input id="edit-fullname-input" type="text" class="form-input" required />
+                </label>
+                <label class="flex flex-col">
+                    <p class="text-base font-medium pb-2">Bio</p>
+                    <textarea id="edit-bio-input" class="form-input" rows="4"
+                        placeholder="Fale um pouco sobre você (campo público)"></textarea>
+                </label>
+                <div id="edit-message-container" class="mt-4 text-center"></div>
+                <div class="flex justify-end gap-4 mt-6">
+                    <button type="button" id="cancel-edit-button"
+                        class="rounded-lg h-10 px-4 bg-[#3b4754] text-white font-semibold hover:bg-[#4a5868]">Cancelar</button>
+                    <button type="submit"
+                        class="rounded-lg h-10 px-4 bg-primary text-white font-semibold hover:bg-primary/90">Salvar
+                        Alterações</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
