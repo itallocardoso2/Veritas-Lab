@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Submissão Completa de Artigo - VeritasLab</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="/css/notifications.css" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: { primary: "#3498DB", "background-light": "#f0f0f0", "background-dark": "#121212", "panel-dark": "#1E1E1E", "text-light": "#E0E0E0", success: "#2ECC71", error: "#E74C3C", },
+                    fontFamily: { display: ["Inter", "sans-serif"] },
+                    borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+                },
+            },
+        };
+    </script>
+    <style>
+        .form-input,
+        .form-select,
+        .form-textarea {
+            /* Dark input background with improved contrast */
+            background-color: #1E1E1E;
+            /* slightly darker than surrounding panel */
+            border: 1px solid #2e3740;
+            /* distinct border for definition */
+            color: #E6EEF3;
+            /* very light text for readability */
+            width: 100%;
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+
+        /* Placeholder and readonly should remain legible */
+        .form-input::placeholder,
+        .form-textarea::placeholder,
+        .form-select::placeholder {
+            color: #9fb0bd;
+            /* lighter, readable placeholder */
+            opacity: 1;
+        }
+
+        .form-input[readonly],
+        .form-input[disabled],
+        .form-textarea[readonly],
+        .form-textarea[disabled] {
+            background-color: #161616;
+            /* clearly distinct but still dark */
+            color: #cfdce3;
+            border-color: #222831;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            --tw-ring-color: rgba(52, 152, 219, 0.9);
+            box-shadow: 0 0 0 3px var(--tw-ring-color);
+            border-color: #66aef6;
+            /* brighter focus color for accessibility */
+        }
+
+        .form-select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2216%22 height%3D%2216%22 fill%3D%22%23E0E0E0%22%3E%3Cpath d%3D%22M7.247 11.14L2.451 5.658a.75.75 0 011.06-1.06l4.244 4.243 4.242-4.243a.75.75 0 111.06 1.06L8.354 11.14a.75.75 0 01-1.06 0z%22/%3E%3C/svg%3E');
+            background-position: right 1rem center;
+            background-repeat: no-repeat;
+            background-size: 1em;
+            padding-right: 2.5rem;
+        }
+
+        .form-input-sm {
+            height: 3rem;
+            padding: 0.75rem;
+        }
+
+        .form-textarea {
+            min-height: 9rem;
+        }
+
+        /* Ensure keywords input text is visible in dark and light themes */
+        html.dark #keywords {
+            color: #E0E0E0;
+            background-color: #283039;
+        }
+
+        html:not(.dark) #keywords {
+            color: #0F172A;
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body class="bg-background-dark font-display text-text-light">
+    <div class="relative flex h-auto min-h-screen w-full flex-col">
+        <header
+            class="sticky top-0 z-10 flex items-center justify-between whitespace-nowrap border-b border-solid border-border-dark bg-background-dark px-10 py-3">
+            <div class="flex items-center gap-4 text-text-main-dark">
+                <a href="/feed.html" class="flex items-center gap-4">
+                    <div class="size-8 text-primary">
+                        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_6_543)">
+                                <path
+                                    d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z"
+                                    fill="currentColor"></path>
+                                <path clip-rule="evenodd"
+                                    d="M7.24189 26.4066C7.31369 26.4411 7.64204 26.5637 8.52504 26.3738C9.59462 26.1438 11.0343 25.5311 12.7183 24.4963C14.7583 23.2426 17.0256 21.4503 19.238 19.238C21.4503 17.0256 23.2426 14.7583 24.4963 12.7183C25.5311 11.0343 26.1438 9.59463 26.3738 8.52504C26.5637 7.64204 26.4411 7.31369 26.4066 7.24189C26.345 7.21246 26.143 7.14535 25.6664 7.1918C24.9745 7.25925 23.9954 7.5498 22.7699 8.14278C20.3369 9.32007 17.3369 11.4915 14.4142 14.4142C11.4915 17.3369 9.32007 20.3369 8.14278 22.7699C7.5498 23.9954 7.25925 24.9745 7.1918 25.6664C7.14534 26.143 7.21246 26.345 7.24189 26.4066ZM29.9001 10.7285C29.4519 12.0322 28.7617 13.4172 27.9042 14.8126C26.465 17.1544 24.4686 19.6641 22.0664 22.0664C19.6641 24.4686 17.1544 26.465 14.8126 27.9042C13.4172 28.7617 12.0322 29.4519 10.7285 29.9001L21.5754 40.747C21.6001 40.7606 21.8995 40.931 22.8729 40.7217C23.9424 40.4916 25.3821 39.879 27.0661 38.8441C29.1062 37.5904 31.3734 35.7982 33.5858 33.5858C35.7982 31.3734 37.5904 29.1062 38.8441 27.0661C39.879 25.3821 40.4916 23.9425 40.7216 22.8729C40.931 21.8995 40.7606 21.6001 40.747 21.5754L29.9001 10.7285ZM29.2403 4.41187L43.5881 18.7597C44.9757 20.1473 44.9743 22.1235 44.6322 23.7139C44.2714 25.3919 43.4158 27.2666 42.252 29.1604C40.8128 31.5022 38.8165 34.012 36.4142 36.4142C34.012 38.8165 31.5022 40.8128 29.1604 42.252C27.2666 43.4158 25.3919 44.2714 23.7139 44.6322C22.1235 44.9743 20.1473 44.9757 18.7597 43.5881L4.41187 29.2403C3.29027 28.1187 3.08209 26.5973 3.21067 25.2783C3.34099 23.9415 3.8369 22.4852 4.54214 21.0277C5.96129 18.0948 8.43335 14.7382 11.5858 11.5858C14.7382 8.43335 18.0948 5.9613 21.0277 4.54214C22.4852 3.8369 23.9415 3.34099 25.2783 3.21067C26.5973 3.08209 28.1187 3.29028 29.2403 4.41187Z"
+                                    fill="currentColor" fill-rule="evenodd"></path>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_6_543">
+                                    <rect fill="white" height="48" width="48"></rect>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h2 class="text-text-main-dark text-xl font-bold leading-tight tracking-[-0.015em]">VeritasLab</h2>
+                </a>
+            </div>
+            <div class="flex flex-1 justify-end items-center gap-6">
+                <div class="hidden md:flex items-center gap-8">
+                </div>
+                <button id="save-draft"
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#283039] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[#3e4854]">
+                    <span class="truncate">Salvar Rascunho</span>
+                </button>
+                <a href="#" id="header-submit-button"
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/80 disabled:bg-gray-500 disabled:cursor-not-allowed">
+                    <span class="truncate">Submeter Artigo</span>
+                </a>
+                <button id="notificationBtn"
+                    class="notification-button relative flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#283039] text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                    <span class="material-symbols-outlined text-white">notifications</span>
+                    <span id="unreadBadge" style="display: none;">0</span>
+                </button>
+                <button id="logout-button"
+                    class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#283039] text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                    <span class="material-symbols-outlined text-white">logout</span>
+                    <span class="hidden md:inline">Sair</span>
+                </button>
+                <a href="/perfil.html" id="header-avatar"
+                    class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                    style='background-image: url("https://i.pravatar.cc/40");' title="Ver perfil"></a>
+            </div>
+        </header>
+        <main class="flex flex-col flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4 px-10">
+                <h1 class="text-4xl font-black leading-tight tracking-[-0.033em]">Submissão de Artigo</h1>
+                <div id="message-container" class="w-full text-center mt-2"></div>
+            </div>
+            <form id="submission-form" class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 p-10">
+                <div class="flex flex-col gap-8 bg-panel-dark p-8 rounded-xl">
+                    <section>
+                        <h3 class="text-2xl font-bold mb-6">Detalhes do Artigo</h3>
+                        <div class="space-y-6">
+                            <label class="flex flex-col">
+                                <p class="text-base font-medium leading-normal pb-2">Título do Artigo</p>
+                                <input id="title"
+                                    class="form-input text-black placeholder:text-[#9dabb9] text-base font-normal leading-normal h-14"
+                                    placeholder="Digite o título do seu artigo" required />
+                            </label>
+                            <label class="flex flex-col">
+                                <p class="text-base font-medium leading-normal pb-2">Resumo (Abstract)</p>
+                                <textarea id="abstract"
+                                    class="form-textarea text-black placeholder:text-[#9dabb9] text-base font-normal leading-normal"
+                                    placeholder="Digite o resumo do seu artigo" required></textarea>
+                            </label>
+                            <label class="flex flex-col">
+                                <p class="text-base font-medium leading-normal pb-2">Palavras-Chave</p>
+                                <input id="keywords"
+                                    class="form-input text-white placeholder:text-[#9dabb9] text-base font-normal leading-normal h-14"
+                                    placeholder="Separe as palavras-chave por vírgulas" />
+                                <div id="keywords-chips" class="flex gap-2 pt-3 flex-wrap"></div>
+                            </label>
+                            <label class="flex flex-col">
+                                <p class="text-base font-medium leading-normal pb-2">Área de Conhecimento</p>
+                                <select id="area"
+                                    class="form-select text-black text-base font-normal leading-normal h-14" required>
+                                    <option disabled="" selected="" value="">Selecione uma área</option>
+                                    <option value="computacao">Ciências da Computação</option>
+                                    <option value="fisica">Física</option>
+                                    <option value="quimica">Química</option>
+                                    <option value="biologia">Biologia</option>
+                                    <option value="engenharia">Engenharia</option>
+                                    <option value="medicina">Medicina</option>
+                                    <option value="humanas">Humanas</option>
+                                    <option value="outros">Outros</option>
+                                </select>
+                            </label>
+                        </div>
+                    </section>
+                    <section>
+                        <h3 class="text-2xl font-bold mb-6">Autores</h3>
+                        <div class="space-y-6 bg-[#283039]/50 p-4 rounded-lg">
+                            <p class="font-medium">Autor Principal</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <label class="flex flex-col">
+                                    <p class="text-sm font-medium leading-normal pb-2">Nome Completo</p>
+                                    <input id="author-name"
+                                        class="form-input form-input-sm text-black placeholder:text-[#9dabb9] text-base"
+                                        placeholder="Nome do autor" required />
+                                </label>
+                                <label class="flex flex-col">
+                                    <p class="text-sm font-medium leading-normal pb-2">Afiliação Institucional</p>
+                                    <input id="author-affiliation"
+                                        class="form-input form-input-sm text-black placeholder:text-[#9dabb9] text-base"
+                                        placeholder="Ex: Universidade" />
+                                </label>
+                                <label class="flex flex-col col-span-2">
+                                    <p class="text-sm font-medium leading-normal pb-2">E-mail</p>
+                                    <input id="author-email" readonly
+                                        class="form-input form-input-sm text-white placeholder:text-[#9dabb9] text-base"
+                                        placeholder="autor@exemplo.com" type="email" />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <h4 class="font-medium mb-2">Adicionar Coautor</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                                <input id="coauthor-name" class="form-input text-black form-input-sm"
+                                    placeholder="Nome do coautor" />
+                                <input id="coauthor-affiliation" class="form-input text-black form-input-sm"
+                                    placeholder="Afiliação" />
+                                <input id="coauthor-email" class="form-input text-black form-input-sm"
+                                    placeholder="E-mail do coautor" type="email" />
+                            </div>
+                            <div class="flex gap-2 mt-2">
+                                <button id="add-coauthor" type="button"
+                                    class="flex items-center gap-2 text-primary font-bold py-2 px-4 rounded-lg hover:bg-primary/10">
+                                    <span class="material-symbols-outlined">add</span>
+                                    Adicionar Coautor
+                                </button>
+                                <button id="clear-coauthor-fields" type="button"
+                                    class="flex items-center gap-2 text-sm text-gray-400 py-2 px-3 rounded-lg hover:bg-white/5">Limpar</button>
+                            </div>
+                        </div>
+                        <div id="coauthors-list" class="mt-4 space-y-2"></div>
+                    </section>
+                    <section>
+                        <h3 class="text-2xl font-bold mb-6">Upload do Artigo</h3>
+                        <label for="file-upload" id="file-drop-area"
+                            class="flex flex-col items-center justify-center w-full p-8 border-2 border-dashed border-[#283039] rounded-lg cursor-pointer hover:border-primary">
+                            <span class="material-symbols-outlined text-5xl text-gray-500">upload_file</span>
+                            <p id="file-name" class="mt-4 text-center">Arraste e solte o arquivo aqui ou</p>
+                            <span id="file-select" class="mt-2 text-primary font-bold">Selecione o Arquivo</span>
+                            <p class="text-xs text-gray-500 mt-2">PDF, DOCX, DOC (max. 30MB)</p>
+                        </label>
+                        <input id="file-upload" type="file" class="hidden" accept=".pdf,.doc,.docx" />
+                        <div id="file-info" class="mt-4 hidden">
+                            <div class="flex justify-between mb-1">
+                                <span id="file-name-display" class="text-base font-medium text-text-light"></span>
+                                <span id="file-status" class="text-sm font-medium text-success">Pronto</span>
+                            </div>
+                            <div class="w-full bg-[#283039] rounded-full h-2.5">
+                                <div id="upload-progress" class="bg-success h-2.5 rounded-full"></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="bg-panel-dark p-8 rounded-xl h-fit sticky top-28">
+                    <h3 class="text-2xl font-bold mb-6">Revisão</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="font-bold text-lg">Título do Artigo</p>
+                            <p id="preview-title" class="text-gray-400 mt-1 break-words">-</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-lg">Resumo</p>
+                            <p id="preview-abstract" class="text-gray-400 mt-1 line-clamp-3 break-words">-</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-lg">Palavras-Chave</p>
+                            <div id="preview-keywords" class="flex gap-2 pt-2 flex-wrap"></div>
+                        </div>
+                        <div>
+                            <p class="font-bold text-lg">Autores</p>
+                            <ul id="preview-authors" class="list-disc list-inside text-gray-400 mt-1 break-words"></ul>
+                        </div>
+                        <div>
+                            <p class="font-bold text-lg">Arquivo</p>
+                            <div id="preview-file" class="flex items-center gap-2 text-gray-400 mt-1">
+                                <span class="material-symbols-outlined">description</span>
+                                <span id="preview-file-text" class="break-words">Nenhum arquivo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-t border-[#283039] my-6"></div>
+                    <label class="flex items-start gap-3 cursor-pointer">
+                        <input id="terms" type="checkbox"
+                            class="form-checkbox h-5 w-5 rounded bg-[#283039] border-[#283039] text-primary focus:ring-primary focus:ring-offset-background-dark"
+                            required />
+                        <span class="text-sm">Declaro que este trabalho é original e que possuo todos os direitos
+                            necessários para a sua publicação.</span>
+                    </label>
+                    <button id="submit-button" type="button"
+                        class="w-full mt-6 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-4 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/80 disabled:bg-gray-500 disabled:cursor-not-allowed">
+                        <span class="truncate">Submeter Artigo</span>
+                    </button>
+                </div>
+            </form>
+        </main>
+    </div>
+    <script src="/js/auth-check.js"></script>
+    <script src="/js/notifications.js"></script>
+    <script src="/js/submissao.js"></script>
+</body>
+
+</html>
