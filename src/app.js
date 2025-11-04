@@ -12,11 +12,37 @@ const { router: notificationsRoutes } = require('./routes/notifications');
 
 const app = express();
 
-// Configuração de CORS para permitir requisições do frontend
+// Configuração de CORS MELHORADA para Vercel
+const allowedOrigins = [
+    'http://localhost:3000',
+    'http://localhost:5500',
+    'http://127.0.0.1:5500',
+    'https://veritas-lab.vercel.app',
+    process.env.FRONTEND_URL
+].filter(Boolean);
+
 app.use(cors({
-    origin: process.env.FRONTEND_URL || '*',
-    credentials: true
+    origin: function (origin, callback) {
+        // Permitir requisições sem origin (mobile apps, curl, Postman)
+        if (!origin) return callback(null, true);
+
+        // Se origin está na lista permitida
+        if (allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            // Em desenvolvimento, permitir qualquer origin
+            if (process.env.NODE_ENV !== 'production') {
+                callback(null, true);
+            } else {
+                callback(new Error('Not allowed by CORS'));
+            }
+        }
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
